@@ -21,7 +21,7 @@ public class TRexGameBot {
     private WebElement canvas;
     private Boolean isFirstJump;
 
-    private static final int DEFAULT_DISTANCE = 195;
+    private static final int DEFAULT_DISTANCE = 185;
     private static final int FLYING_OBSTACLE_WIDTH = 46;
     private static final int TREX_HEIGHT = 51;
 
@@ -83,11 +83,11 @@ public class TRexGameBot {
         Long tRexPos = (Long) executeScript("return Runner.instance_.tRex.xPos");
         Double currentSpeed = (Double) executeScript("return Runner.instance_.currentSpeed");
 
-        Long distanceToStartJump = isFirstJump ? new Long(DEFAULT_DISTANCE+ 30) : new Long(DEFAULT_DISTANCE);
+        Long distanceToStartJump = isFirstJump ? new Long(DEFAULT_DISTANCE+ 40) : new Long(DEFAULT_DISTANCE);
 
         /* Dynamically calculate the distance difference to initiate the space bar press event based on current game sped */
         if(currentSpeed >= 10) {
-            distanceToStartJump = Math.round(distanceToStartJump + (20 * (currentSpeed % 10))) + 35;
+            distanceToStartJump = Math.round(distanceToStartJump + (20 * (currentSpeed % 10))) + 40;
         }
 
         /*  If the game speed is > 13, space bar needs to be pressed in advance to match with the speed of obstacle movement */
