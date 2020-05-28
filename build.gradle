@@ -1,5 +1,16 @@
 plugins {
     id 'java'
+    id "application"
+}
+
+apply plugin : "java"
+
+ext {
+    javaMainClass = "com.sudharsan.selenium.GameEntry"
+}
+
+application {
+    mainClassName = javaMainClass
 }
 
 group 'com.sudharsan.selenium'
